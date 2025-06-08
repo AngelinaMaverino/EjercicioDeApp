@@ -1,0 +1,35 @@
+﻿# Node modules
+node_modules/
+
+# TypeScript build outputs
+dist/
+build/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment variables
+.env
+.env.*.local
+
+# OS/IDE stuff
+.DS_Store
+Thumbs.db
+
+# VSCode config
+.vscode/
+.idea/
+
+# ts-node cache
+*.tsbuildinfo
+
+# Optional: coverage (si usás tests)
+coverage/
+
+# Optional: local database or runtime files
+*.sqlite
+*.local.db
