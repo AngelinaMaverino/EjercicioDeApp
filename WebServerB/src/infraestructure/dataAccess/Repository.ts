@@ -33,12 +33,29 @@ export class Repository implements IRepository<Pet> {
 
     async add(pet: Pet): Promise<Pet> {
         const collection = await this.getCollection();
-        const newId = Date.now();
+
         const now = new Date();
-        const doc = { ...pet, id: newId, createdAt: now, updatedAt: now };
+        
+        const doc = {
+            ...pet,
+            createdAt: now,
+            updatedAt: now,
+        };
+
         await collection.insertOne(doc);
-        return pet;
+
+        const createdPet = new Pet();
+        createdPet.id = pet.id;
+        createdPet.name = pet.name;
+        createdPet.age = pet.age;
+        createdPet.type = pet.type;
+        createdPet.createdAt = now;
+        createdPet.updatedAt = now;
+
+        return createdPet;
+
     }
+
 
     async update(pet: Pet): Promise<void> {
         const collection = await this.getCollection();
